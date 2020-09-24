@@ -1,0 +1,93 @@
+.employeeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  // employeeList <li> tag
+  @include e(item) {
+    width: 95%;
+    margin: 0 2.5% 2.5%;
+    padding: .5em;
+    background-color: $white;
+    border-radius: .5em;
+    transition: .25s;
+    @extend %shadow__bottom;
+
+    &:hover {
+      @extend %hover;
+      @extend %shadow__bottom__up;
+    }
+
+    @include mq(lg) {
+      width: calc(93.5%/2);
+      margin: 0 0 2% 2%;
+      display: inline-block;
+      &:nth-child(2n) {
+        margin-right: 2%;
+      }
+    }
+
+    @include mq(xl) {
+      width: calc(93%/3);
+      margin: 0 0 1.5% 1.5%;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-child(3n) {
+        margin-right: 1.5%;
+      }
+    }
+  }
+
+  // employeeList row wrapper
+  @include e(wrapperRow) {
+    @include flexbox;
+    @include flex-alignment(center, center);
+  }
+
+  // employeeList image wrapper
+  @include e(wrapperImage) {
+    width: 35%;
+    text-align: right;
+    @include mq(lg) {
+      width: 30%;
+    }
+  }
+
+  // employeeList text wrapper
+  @include e(wrapperText) {
+    width: 65%;
+    padding-left: 1em;
+    @include mq(lg) {
+      width: 70%;
+    }
+  }
+
+  // employeeList name
+  @include e(name) {
+    margin: 0 0 .5em;
+    font-weight: $font-weight--xbold;
+  }
+
+  // employeeList email
+  @include e(email) {
+    margin: 0;
+    font-size: .8rem;
+    color: $grey--xdark;
+  }
+
+  // employeeList city
+  @include e(city) {
+    margin: 0;
+    font-size: .8rem;
+    color: $grey--xdark;
+  }
+
+  // no results
+  @include e(noResult) {
+    font-size: 3rem;
+    font-weight: $font-weight--bold;
+    text-align: center;
+    color: $grey--xdark;
+  }
+}

@@ -1,0 +1,50 @@
+%shadow {
+  @include e(bottom) {
+    box-shadow: 1px 1px 4px rgba($grey, .7);
+
+    @include e(up) {
+      box-shadow: 2px 2px 4px rgba($grey, .7);
+    }
+  }
+
+  @include e(top) {
+    box-shadow: -1px -1px 4px rgba($grey, .7);
+  }
+}
+
+%hover {
+  transform: translateX(-1px) translateY(-1px);
+}
+
+%btn {
+  font-size: 1rem;
+  margin: .25em;
+  padding: .5em .75em;
+  color: $white;
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: .5em;
+  transition: .2s;
+  @extend %shadow__bottom;
+  &:hover {
+    cursor: pointer;
+    color: $color-primary;
+    background-color: $white;
+    @extend %hover;
+    @extend %shadow__bottom__up;
+  }
+}
+
+%input {
+  font-size: 1rem;
+  margin: 0 auto .5em;
+  padding: .5em;
+  background-color: rgba($white, 0);
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $grey--xdark;
+  transition: .2s;
+  &:focus {
+    border-bottom-color: $color-primary;
+  }
+}

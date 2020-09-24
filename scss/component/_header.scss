@@ -1,0 +1,60 @@
+.header {
+  background-color: $white;
+  padding: 1em;
+  text-align: center;
+  z-index: 999;
+  @extend %shadow__bottom;
+
+  // company name and title of the page
+  @include e(title) {
+    font-family: 'Righteous', cursive;
+    margin: 0;
+    padding: 0 .25em;
+    font-size: 1.5rem;
+    color: $color-primary;
+    text-shadow: 1px 1px 3px rgba($grey, .5);
+
+    @include mq(md) {
+      display: inline-block;
+    }
+  }
+
+  // sub-header section where buttons and search field laid out
+  @include e(sub) {
+    background-color: rgba($grey--xlight, .9);
+    z-index: 999;
+    @include flexbox;
+    @include flex-alignment(space-between, center);
+
+    @include e(item) {
+      padding: .5em;
+      overflow: hidden;
+    }
+  }
+
+  @include e(messageWrapper) {
+    width: 70%;
+    margin-top: -3em;
+    left: 15%;
+    position: absolute;
+    text-align: center;
+    background-color: rgba($grey--xxdark, .7);
+    border-radius: .5em;
+    opacity: 0;
+    z-index: 9999;
+    transition: .5s ease-out;
+    visibility: hidden;
+    
+    @extend %shadow__bottom;
+    &.show {
+      margin-top: .5em;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @include e(message) {
+    font-size: 1.2rem;
+    color: $grey--xxlight;
+  }
+}

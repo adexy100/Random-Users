@@ -1,0 +1,36 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $base__font-family;
+  font-size: $base__font-size;
+  font-weight: $base__font-weight;
+  line-height: $base__line-height;
+  color: $black;
+  background-color: $grey--xlight;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+main {
+  margin-top: 10.75rem;
+  margin-bottom: 2.5rem;
+
+  @include mq(md) {
+    margin-top: 8.75rem;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
